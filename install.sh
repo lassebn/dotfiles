@@ -64,4 +64,15 @@ if command -v git >/dev/null 2>&1 \
   log "added include of ~/.gitconfig.local to ~/.gitconfig"
 fi
 
+# --- Global git ignore -------------------------------------------------------
+# Personal mise config stays out of every repo.
+IGNORE_FILE="$(git config --global core.excludesfile 2>/dev/null || true)"
+[ -z "$IGNORE_FILE" ] && IGNORE_FILE="${XDG_CONFIG_HOME:-$HOME/.config}/git/ignore"
+case "$IGNORE_FILE" in "~/"*) IGNORE_FILE="$HOME/${IGNORE_FILE#\~/}" ;; esac
+mkdir -p "$(dirname "$IGNORE_FILE")"
+if ! grep -qxF 'mise.local.toml' "$IGNORE_FILE" 2>/dev/null; then
+  echo 'mise.local.toml' >> "$IGNORE_FILE"
+  log "added mise.local.toml to $IGNORE_FILE"
+fi
+
 exit 0

@@ -29,8 +29,8 @@ Small on purpose: apps, a handful of aliases, and diff-so-fancy that doesn't bre
    ```
    This appends a line sourcing `aliases.sh` (from wherever the repo lives) to
    `~/.zshrc` and `~/.bashrc` — after oh-my-zsh, so these aliases win — writes
-   `~/.gitconfig.local` with the diff-so-fancy pager, and adds an include of it to
-   `~/.gitconfig`.
+   `~/.gitconfig.local` with the diff-so-fancy pager, adds an include of it to
+   `~/.gitconfig`, and adds `mise.local.toml` to the global git ignore file.
 5. Node and other runtimes via mise:
    ```sh
    mise use -g node@lts

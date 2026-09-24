@@ -4,9 +4,9 @@ Small on purpose: apps, a handful of aliases, and diff-so-fancy that doesn't bre
 
 ## New Mac
 
-1. Install [Homebrew](https://brew.sh), clone this repo to `~/Source/dotfiles`, then:
+1. Install [Homebrew](https://brew.sh), clone this repo anywhere, and from inside it run:
    ```sh
-   brew bundle --file=~/Source/dotfiles/Brewfile
+   brew bundle
    ```
 2. Install [oh-my-zsh](https://ohmyz.sh) — used for the prompt, history, completion and
    directory shortcuts only, no plugins.
@@ -21,16 +21,14 @@ Small on purpose: apps, a handful of aliases, and diff-so-fancy that doesn't bre
    source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
    source <(fzf --zsh)
    eval "$(mise activate zsh)"
-
-   # Shared aliases — after oh-my-zsh so these win
-   source ~/Source/dotfiles/aliases.sh
    ```
    Machine-specific exports and tokens go below, never in this repo.
-4. Run:
+4. From inside the repo, run:
    ```sh
-   ~/Source/dotfiles/install.sh
+   ./install.sh
    ```
-   This sources `aliases.sh` from `~/.bashrc` (and `~/.zshrc` if missing), writes
+   This appends a line sourcing `aliases.sh` (from wherever the repo lives) to
+   `~/.zshrc` and `~/.bashrc` — after oh-my-zsh, so these aliases win — writes
    `~/.gitconfig.local` with the diff-so-fancy pager, and adds an include of it to
    `~/.gitconfig`.
 5. Node and other runtimes via mise:

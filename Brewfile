@@ -1,4 +1,4 @@
-# Run with: brew bundle --file=~/Source/dotfiles/Brewfile
+# Run from this directory: brew bundle
 
 # Apps
 cask "ghostty"

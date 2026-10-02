@@ -2,7 +2,7 @@
 
 # Apps
 cask "ghostty"
-cask "amethyst"
+cask "rectangle"
 cask "keepingyouawake"
 cask "visual-studio-code"
 cask "docker-desktop"

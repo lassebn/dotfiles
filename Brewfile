@@ -4,6 +4,8 @@
 cask "ghostty"
 cask "amethyst"
 cask "keepingyouawake"
+cask "visual-studio-code"
+cask "docker-desktop"
 
 # CLI
 brew "fzf"
